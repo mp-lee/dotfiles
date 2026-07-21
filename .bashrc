@@ -116,9 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [[ ! -d "$HOME/.dotfiles" ]]; then
-  git clone https://github.com/mp-lee/dotfiles
-  pushd .dotfiles
-  stow --adopt .
+if [[ -d "$HOME/dotfiles" ]]; then
+  pushd $HOME/dotfiles
+    git pull
+    source install.sh
   popd
 fi

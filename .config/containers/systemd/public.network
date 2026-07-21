@@ -1,0 +1,8 @@
+[Unit]
+Description=For external network apps
+
+[Network]
+NetworkName=public
+
+[Install]
+WantedBy=default.target

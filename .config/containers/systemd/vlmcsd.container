@@ -1,0 +1,10 @@
+[Unit]
+Description=KMS Server
+ 
+[Container]
+Image=docker.io/mikolatero/vlmcsd:latest
+PublishPort=1688:1688
+Network=public
+
+[Install]
+WantedBy=default.target
