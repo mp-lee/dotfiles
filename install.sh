@@ -11,6 +11,7 @@ case "$OS" in
         ;;
     *"fedora"* | *"alma"*)
         PKG=dnf
+        sudo dnf install -y epel-release
         ;;
     *)
         PKG=apt
@@ -18,7 +19,9 @@ case "$OS" in
 esac
 
 echo "Installing packages.."
-sudo "$PKG" install -y stow fzf ripgrep ncdu dust duf conky fish zsh >/dev/null 2>&1
+for package in git nano neovim stow fzf ripgrep ncdu dust duf conky fish zsh;
+ do sudo "$PKG" install -y $package;
+done
 
 pushd $HOME/dotfiles >/dev/null
     stow --adopt .

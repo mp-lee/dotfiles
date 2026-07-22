@@ -119,6 +119,6 @@ fi
 if [[ -d "$HOME/dotfiles" ]]; then
   pushd $HOME/dotfiles
     git pull
-    source install.sh
+    # source install.sh
   popd
 fi
