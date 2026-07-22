@@ -122,3 +122,5 @@ if [[ -d "$HOME/dotfiles" ]]; then
     # source install.sh
   popd
 fi
+
+eval "$(zoxide init bash)"

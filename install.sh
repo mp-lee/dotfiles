@@ -19,7 +19,7 @@ case "$OS" in
 esac
 
 echo "Installing packages.."
-for package in git nano neovim stow fzf ripgrep ncdu dust duf conky fish zsh;
+for package in git nano neovim zoxide stow fzf ripgrep ncdu dust duf conky fish zsh;
  do sudo "$PKG" install -y $package;
 done
 
