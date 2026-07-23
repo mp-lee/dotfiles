@@ -1,3 +1,5 @@
 [user]
 	email = bort@bort.com
 	name = bort
+[credential]
+	helper = libsecret
