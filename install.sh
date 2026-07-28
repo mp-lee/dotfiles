@@ -8,15 +8,18 @@ packages=(git lazygit git-delta git-credential-libsecret \
 OS=$(echo $ID | tr '[:upper:]' '[:lower:]')
 
 case "$OS" in
+    *"arch"*)
+	INSTALL="pacman -S --noconfirm"
+	;;
     *"opensuse"*)
-        PKG=zypper
+        INSTALL="zypper in -y"
         ;;
     *"fedora"* | *"alma"*)
-        PKG=dnf
+        INSTALL="dnf install -y"
         sudo dnf install -y epel-release
         ;;
     *)
-        PKG=apt
+        INSTALL="apt install -y"
 	packages=( "${packages[@]/dust/du-dust}" )
 	packages=( "${packages[@]/fd/fd-find}" )
 	packages=( "${packages[@]/conky/conky-all}" )
@@ -25,7 +28,7 @@ esac
 
 echo "Installing packages.."
 for package in ${packages[@]};
- do sudo "$PKG" install -y $package;
+ do sudo $INSTALL $package;
 done
 
 pushd $HOME/dotfiles >/dev/null
